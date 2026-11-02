@@ -82,22 +82,25 @@ ul.plain .meta{font-size:.88rem;color:var(--ink-soft);display:block;margin-top:.
 .card a{font-size:.9rem;text-decoration:none;border-bottom:1px solid currentColor}
 
 /* ---------- programs (expandable) ---------- */
+/* Open by default. JS collapses all but the first, so with no JS every
+   program is readable and nothing depends on script to be visible. */
 .program{border-top:1px solid var(--rule)}
 .program:last-of-type{border-bottom:1px solid var(--rule)}
 .program > button{
   width:100%;text-align:left;background:none;border:0;padding:1.3rem 2.2rem 1.3rem 0;
-  font:inherit;color:inherit;cursor:pointer;position:relative;
+  font:inherit;color:inherit;cursor:pointer;position:relative;display:block;
 }
 .program > button h2{margin:0}
 .program > button .kicker{display:block;font-size:.78rem;color:var(--field-soft);margin-bottom:.3rem}
 .program > button::after{
   content:"";position:absolute;right:.4rem;top:50%;width:.6rem;height:.6rem;
   border-right:1.5px solid var(--field-soft);border-bottom:1.5px solid var(--field-soft);
-  transform:translateY(-70%) rotate(45deg);transition:transform .18s ease;
+  transform:translateY(-70%) rotate(-135deg);transition:transform .18s ease;
 }
-.program[open] > button::after{transform:translateY(-30%) rotate(-135deg)}
+.program.collapsed > button::after{transform:translateY(-70%) rotate(45deg)}
 .program .body{padding:0 0 1.4rem;max-width:40rem}
 .program .body p:last-child{margin-bottom:0}
+.program.collapsed .body{display:none}
 @media (prefers-reduced-motion:reduce){.program > button::after{transition:none}}
 
 /* ---------- team ---------- */
