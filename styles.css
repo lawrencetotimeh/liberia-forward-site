@@ -166,3 +166,35 @@ figure{margin:0}
 .band-photo figcaption{
   font-size:.84rem;color:var(--ink-soft);margin-top:.5rem;
 }
+
+/* ---------- forms ---------- */
+.form{display:grid;gap:1.15rem;max-width:34rem;margin-top:1.8rem}
+.form .row{display:grid;gap:1.15rem}
+@media (min-width:34rem){.form .row{grid-template-columns:1fr 1fr}}
+.field{display:grid;gap:.4rem}
+.field label{
+  font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-soft);font-weight:500;
+}
+.field label .opt{text-transform:none;letter-spacing:0;font-weight:400;opacity:.75}
+.field input,.field select,.field textarea{
+  font:inherit;font-size:1rem;line-height:1.5;color:var(--ink);
+  background:#fff;border:1px solid #D9D4C3;border-radius:3px;
+  padding:.68rem .72rem;width:100%;appearance:none;
+}
+.field textarea{min-height:9.5rem;resize:vertical}
+.field select{
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231B3A2B' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .8rem center;padding-right:2.2rem;
+}
+.field input::placeholder,.field textarea::placeholder{color:#9A978C}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--field);box-shadow:0 0 0 3px rgba(27,58,43,.13);
+}
+.field input:user-invalid,.field select:user-invalid,.field textarea:user-invalid{border-color:#9C4221}
+.form .btn{border:0;cursor:pointer;font:inherit}
+.formnote{
+  margin:0;font-size:.92rem;line-height:1.55;color:var(--ink-soft);
+  background:var(--wash);border-left:2px solid var(--field-soft);
+  padding:.75rem .9rem;border-radius:0 3px 3px 0;
+}

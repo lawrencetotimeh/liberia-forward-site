@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -38,6 +38,66 @@
   </div>
 
   <section class="band reveal">
+    <h2>Send us a message</h2>
+    <p style="color:var(--ink-soft);max-width:34rem">Fill this in and it will open in your own email program, addressed and ready to send. Nothing is submitted through this website, so your message comes to us directly from you.</p>
+
+    <form class="form" id="inquiry" novalidate>
+      <div class="row">
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-org">Organization <span class="opt">(optional)</span></label>
+          <input id="f-org" name="org" type="text" autocomplete="organization">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="f-email">Your email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone <span class="opt">(optional)</span></label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-topic">What are you writing about</label>
+        <select id="f-topic" name="topic" required>
+          <option value="">Choose one</option>
+          <option>Partnership or collaboration</option>
+          <option>University or research</option>
+          <option>Business or investment in Liberia</option>
+          <option>Government or embassy</option>
+          <option>Offering skills or expertise</option>
+          <option>Student or scholarship question</option>
+          <option>Press or media</option>
+          <option>Something else</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="f-timeline">Your timeline <span class="opt">(optional)</span></label>
+        <input id="f-timeline" name="timeline" type="text" placeholder="e.g. exploring now, decision by March">
+      </div>
+
+      <div class="field">
+        <label for="f-message">Your message</label>
+        <textarea id="f-message" name="message" required placeholder="Who you are, what you are considering, and what you need from us."></textarea>
+      </div>
+
+      <div>
+        <button class="btn" type="submit">Open in my email</button>
+      </div>
+      <p class="formnote" id="formnote" hidden></p>
+    </form>
+  </section>
+
+  <section class="band reveal">
+    <h2>Or reach us directly</h2>
     <div class="contactgrid">
       <div>
         <h3>General inquiries</h3>
@@ -56,7 +116,6 @@
         <p>Who you are, what you are considering, and the timeline you are working to. That is usually enough for us to give you a useful answer.</p>
       </div>
     </div>
-    <p style="margin-top:2rem"><a class="btn" href="mailto:info@liberiaforward.org?subject=Inquiry%20via%20liberiaforward.org">Write to us</a></p>
   </section>
 </div>
 
@@ -77,6 +136,6 @@
   </div>
 </footer>
 
-<script src="site.js?v=3"></script>
+<script src="site.js?v=4"></script>
 </body>
 </html>

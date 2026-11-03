@@ -65,3 +65,65 @@
   }, { rootMargin: '0px 0px -8% 0px' });
   items.forEach(function (el) { io.observe(el); });
 })();
+
+/* ---------- contact form: hand off to the visitor's own mail client ---------- */
+(function(){
+  var f = document.getElementById('inquiry');
+  if(!f) return;
+  var note = document.getElementById('formnote');
+
+  function say(msg){ note.textContent = msg; note.hidden = false; }
+
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!f.checkValidity()){
+      say('Please fill in your name, email, reason for writing, and a message.');
+      var bad = f.querySelector(':invalid');
+      if(bad) bad.focus();
+      return;
+    }
+
+    var d = new FormData(f);
+    function v(k){ return (d.get(k) || '').toString().trim(); }
+
+    var topic = v('topic');
+    var to = (topic === 'Partnership or collaboration' ||
+              topic === 'Business or investment in Liberia' ||
+              topic === 'Government or embassy' ||
+              topic === 'University or research')
+             ? 'partnerships@liberiaforward.org'
+             : 'info@liberiaforward.org';
+
+    var subject = topic + ': ' + v('name') + (v('org') ? ' (' + v('org') + ')' : '');
+
+    var lines = [];
+    lines.push(v('message'));
+    lines.push('');
+    lines.push('---');
+    lines.push('Name: ' + v('name'));
+    if(v('org'))      lines.push('Organization: ' + v('org'));
+    lines.push('Email: ' + v('email'));
+    if(v('phone'))    lines.push('Phone: ' + v('phone'));
+    lines.push('Reason for writing: ' + topic);
+    if(v('timeline')) lines.push('Timeline: ' + v('timeline'));
+    lines.push('Sent via liberiaforward.org');
+
+    var url = 'mailto:' + to +
+              '?subject=' + encodeURIComponent(subject) +
+              '&body='    + encodeURIComponent(lines.join('\n'));
+
+    if(url.length > 1900){
+      say('That message is long enough that some email programs will cut it off. Shorten it here, or write to ' + to + ' and paste it in.');
+      return;
+    }
+
+    say('Opening your email program with this message ready to send. If nothing opens, write to ' + to + ' instead.');
+    var a = document.createElement('a');
+    a.href = url;
+    a.rel = 'noopener';
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+})();
