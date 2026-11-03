@@ -115,8 +115,16 @@ ul.plain .meta{font-size:.88rem;color:var(--ink-soft);display:block;margin-top:.
 @media (min-width:52rem){.roster{grid-template-columns:1fr 1fr 1fr}}
 .roster li{padding:.65rem 0;border-bottom:1px solid var(--rule);font-size:.97rem}
 
-.lead-person{border:1px solid var(--rule);border-radius:4px;padding:1.3rem;background:#fff;margin-top:1.2rem}
-.lead-person .role{font-size:.82rem;color:var(--field-soft);margin-top:.15rem}
+.leadgrid{display:grid;gap:1rem;grid-template-columns:1fr;margin-top:1.2rem}
+@media (min-width:46rem){.leadgrid{grid-template-columns:repeat(3,1fr)}}
+.lead-person{border:1px solid var(--rule);border-radius:4px;padding:1.3rem;background:#fff;margin:0}
+.lead-person .role{font-size:.82rem;color:var(--field-soft);margin-top:.15rem;line-height:1.5}
+.avatar{
+  width:76px;height:76px;border-radius:50%;overflow:hidden;background:var(--wash);
+  display:flex;align-items:center;justify-content:center;margin-bottom:.95rem;
+}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.avatar span{font-family:Newsreader,Georgia,serif;font-size:1.45rem;color:var(--field-soft)}
 
 /* ---------- contact ---------- */
 .contactgrid{display:grid;gap:1.6rem;grid-template-columns:1fr;margin-top:1.4rem}
