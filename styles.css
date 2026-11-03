@@ -33,7 +33,13 @@ header.site .bar{
   max-width:62rem;margin:0 auto;padding:.85rem 1.25rem;
   display:flex;align-items:center;justify-content:space-between;gap:1rem;
 }
-.mark{font-family:Newsreader,Georgia,serif;font-size:1.2rem;color:var(--paper);text-decoration:none;white-space:nowrap}
+.mark{
+  font-family:Newsreader,Georgia,serif;font-size:1.2rem;color:var(--paper);
+  text-decoration:none;white-space:nowrap;
+  display:flex;align-items:center;gap:.58rem;
+}
+.mark img{height:34px;width:auto;display:block;flex:0 0 auto}
+@media (max-width:30rem){.mark{font-size:1.05rem;gap:.45rem}.mark img{height:28px}}
 nav.site ul{list-style:none;display:flex;gap:1.35rem;margin:0;padding:0}
 nav.site a{color:#CFE0D5;text-decoration:none;font-size:.92rem;padding:.2rem 0;border-bottom:1px solid transparent}
 nav.site a:hover{color:#fff}
@@ -146,6 +152,7 @@ figure{margin:0}
   margin:1.6rem 0 .5rem;
 }
 @media (min-width:34rem){.photo-grid{grid-template-columns:1fr 1fr}}
+@media (min-width:52rem){.photo-grid{grid-template-columns:repeat(3,1fr)}}
 .photo-grid img{
   width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;
   display:block;border-radius:4px;background:var(--wash);
@@ -163,6 +170,8 @@ figure{margin:0}
   background:var(--wash);
 }
 @media (min-width:40rem){.band-photo img{aspect-ratio:16/9}}
+.band-photo.tall img{aspect-ratio:4/3}
+@media (min-width:40rem){.band-photo.tall img{aspect-ratio:4/3;max-height:30rem}}
 .band-photo figcaption{
   font-size:.84rem;color:var(--ink-soft);margin-top:.5rem;
 }
